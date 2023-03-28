@@ -19,7 +19,7 @@ function App() {
       </div>
       <div className={s.tv_show_detail}>TV Show Detail</div>
       <div className={s.recommended_tv_shows}>Recommended TV Shows</div>
-    </div>
+    </div> 
   );
 }
 
