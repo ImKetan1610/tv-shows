@@ -1,6 +1,8 @@
 import React from "react";
+import { TVShowapi } from "./api/tv_show";
 import s from "./style.module.css";
 
+TVShowapi.fetchPopulars();
 function App() {
   return (
     <div className={s.main_container}>
