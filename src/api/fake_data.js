@@ -12,7 +12,7 @@ export const FAKE_DATA = [
       "Melur Untuk Firdaus is a 2022 Malaysian television drama series directed by Zamri Zakaria with a script by Wan Mahani Wan Hasan. Starring Anna Jobling, Meerqeen, Nesa Idrus, Fimie Don and many others, this series is an adaptation of the novel My Rude Wife by Cik Nor Cinta and started airing on Slot Lestary, TV3 from 27 May 2022 until 15 July 2022 replacing Do You Love Me Captain.",
     popularity: 2155.055,
     poster_path: "/rVxQxsY3bQWTabHUi2Qr3aoOafk.jpg",
-    vote_average: 4.5,
+    vote_average: 7.5,
     vote_count: 6,
   },
 ];
