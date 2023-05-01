@@ -3,7 +3,6 @@ import s from "./style.module.css";
 import { FiveStarRatings } from "../FiveStarRatings/FiveStarRatings";
 
 const TVShowDetails = ({ tvShow }) => {
-  console.log("props", tvShow);
   const rating = tvShow.vote_average / 2;
   return (
     <div>

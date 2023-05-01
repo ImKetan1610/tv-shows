@@ -3,8 +3,9 @@ import { TVShowapi } from "./api/tv_show";
 import { TVShowDetails } from "./components/TVShowDetail/TVShowDetails";
 import s from "./style.module.css";
 import { BACKDROP_BASE_URL } from "./config";
-import {Logo} from "./components/Logo/Logo";
+import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
+import TVShowListItem from "./components/TVShowListItem/TVShowListItem";
 
 function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
@@ -19,8 +20,6 @@ function App() {
   useEffect(() => {
     fetchPopulars();
   }, []);
-
-  console.log(currentTVShow);
 
   return (
     <div
@@ -49,7 +48,30 @@ function App() {
       <div className={s.tv_show_detail}>
         {currentTVShow && <TVShowDetails tvShow={currentTVShow} />}
       </div>
-      <div className={s.recommended_tv_shows}>Recommended TV Shows</div>
+      <div className={s.recommended_tv_shows}>
+        {currentTVShow && (
+          <>
+            <TVShowListItem
+              tvshow={currentTVShow}
+              onClick={(tvshow) => {
+                console.log(tvshow);
+              }}
+            />
+            <TVShowListItem
+              tvshow={currentTVShow}
+              onClick={(tvshow) => {
+                console.log(tvshow);
+              }}
+            />
+            <TVShowListItem
+              tvshow={currentTVShow}
+              onClick={(tvshow) => {
+                console.log(tvshow);
+              }}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 }
