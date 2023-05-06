@@ -5,11 +5,12 @@ import s from "./style.module.css";
 import { BACKDROP_BASE_URL } from "./config";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
-import TVShowListItem from "./components/TVShowListItem/TVShowListItem";
+import {TVShowListItem} from "./components/TVShowListItem/TVShowListItem";
+import { TVShowList } from "./components/TVShowList/TVShowList";
 
 function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
-  const[recommendationList, setRecommendationList] = useState([])
+  const [recommendationList, setRecommendationList] = useState([]);
 
   const fetchPopulars = async () => {
     const popularTVShowList = await TVShowapi.fetchPopulars();
@@ -17,11 +18,13 @@ function App() {
       setCurrentTVShow(popularTVShowList[0]);
     }
   };
-  
+
   const fetchRecommendations = async (tvShowId) => {
-    const recommendedTVShowList = await TVShowapi.fetchRecommendations(tvShowId);
+    const recommendedTVShowList = await TVShowapi.fetchRecommendations(
+      tvShowId
+    );
     if (recommendedTVShowList.length > 0) {
-      setRecommendationList(recommendedTVShowList.slice(0,10));
+      setRecommendationList(recommendedTVShowList.slice(0, 10));
     }
   };
 
@@ -29,13 +32,13 @@ function App() {
     fetchPopulars();
   }, []);
 
-  useEffect(()=>{
-    if(currentTVShow){
-      fetchRecommendations(currentTVShow.id)
+  useEffect(() => {
+    if (currentTVShow) {
+      fetchRecommendations(currentTVShow.id);
     }
-  },[currentTVShow])
+  }, [currentTVShow]);
 
-  console.log(recommendationList.slice(0,10));
+  // console.log("recommendedTVShowList", recommendationList.slice(0, 10));
 
   return (
     <div
@@ -65,28 +68,7 @@ function App() {
         {currentTVShow && <TVShowDetails tvShow={currentTVShow} />}
       </div>
       <div className={s.recommended_tv_shows}>
-        {currentTVShow && (
-          <>
-            <TVShowListItem
-              tvshow={currentTVShow}
-              onClick={(tvshow) => {
-                console.log(tvshow);
-              }}
-            />
-            <TVShowListItem
-              tvshow={currentTVShow}
-              onClick={(tvshow) => {
-                console.log(tvshow);
-              }}
-            />
-            <TVShowListItem
-              tvshow={currentTVShow}
-              onClick={(tvshow) => {
-                console.log(tvshow);
-              }}
-            />
-          </>
-        )}
+        {currentTVShow && <TVShowList tvShowList={recommendationList} />}
       </div>
     </div>
   );
