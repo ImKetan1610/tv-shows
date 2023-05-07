@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./style.module.css";
 import { SMALL_IMG_COVER_BASE_URL } from "../../config";
-const MAX_TITLE_CHAR = 15;
+const MAX_TITLE_CHAR = 20;
 
 const TVShowListItem = ({ tvShow, onClick }) => {
   const onClick_ = () => {

@@ -6,6 +6,11 @@
 
 .list:hover {
   overflow: overlay;
+  scrollbar-width: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
 }
 
 .list {
