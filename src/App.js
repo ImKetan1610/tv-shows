@@ -5,7 +5,7 @@ import s from "./style.module.css";
 import { BACKDROP_BASE_URL } from "./config";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
-import {TVShowListItem} from "./components/TVShowListItem/TVShowListItem";
+import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
 import { TVShowList } from "./components/TVShowList/TVShowList";
 
 function App() {
@@ -38,7 +38,9 @@ function App() {
     }
   }, [currentTVShow]);
 
-  // console.log("recommendedTVShowList", recommendationList.slice(0, 10));
+  function updateCurrentTVShow(tvShow) {
+    setCurrentTVShow(tvShow);
+  }
 
   return (
     <div
@@ -68,7 +70,12 @@ function App() {
         {currentTVShow && <TVShowDetails tvShow={currentTVShow} />}
       </div>
       <div className={s.recommended_tv_shows}>
-        {currentTVShow && <TVShowList tvShowList={recommendationList} />}
+        {currentTVShow && (
+          <TVShowList
+            onClickItem={updateCurrentTVShow}
+            tvShowList={recommendationList}
+          />
+        )}
       </div>
     </div>
   );

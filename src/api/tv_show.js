@@ -4,19 +4,19 @@ import { DATABASE_URL, API_KEY } from "../config";
 
 export class TVShowapi {
   static async fetchPopulars() {
-    // const response = await axios.get(`${DATABASE_URL}tv/popular${API_KEY}`);
-    // console.log(response.data.results);
-    // return response.data.results;
-    return FAKE_DATA;
+    const response = await axios.get(`${DATABASE_URL}tv/popular${API_KEY}`);
+    console.log(response.data.results);
+    return response.data.results;
+    // return FAKE_DATA;
   }
 
   static async fetchRecommendations(tvShowId) {
-    // const response = await axios.get(
-    //   `${DATABASE_URL}tv/${tvShowId}/recommendations${API_KEY}`
-    // );
+    const response = await axios.get(
+      `${DATABASE_URL}tv/${tvShowId}/recommendations${API_KEY}`
+    );
 
-    // return response.data.results;
+    return response.data.results;
 
-    return FAKE_RECOMMENDATION;
+    // return FAKE_RECOMMENDATION;
   }
 }
