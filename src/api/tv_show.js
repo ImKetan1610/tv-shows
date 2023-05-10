@@ -19,4 +19,14 @@ export class TVShowapi {
 
     // return FAKE_RECOMMENDATION;
   }
+
+  static async fetchByTitle(title) {
+    const response = await axios.get(
+      `${DATABASE_URL}search/tv${API_KEY}&query=${title}`
+    );
+      console.log(response.data.results);
+    return response.data.results;
+
+    // return FAKE_RECOMMENDATION;
+  }
 }

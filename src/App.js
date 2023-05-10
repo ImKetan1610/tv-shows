@@ -43,6 +43,13 @@ function App() {
     setCurrentTVShow(tvShow);
   }
 
+  const fetchByTitle = async (title) => {
+    const searchResponse = await TVShowapi.fetchByTitle(title);
+    if (searchResponse.length > 0) {
+      setCurrentTVShow(searchResponse[0]);
+    }
+  };
+
   return (
     <div
       className={s.main_container}
@@ -63,7 +70,7 @@ function App() {
             />
           </div>
           <div className="col-md-12 col-lg-4">
-            <SearchBar />
+            <SearchBar onSubmit={fetchByTitle} />
           </div>
         </div>
       </div>
