@@ -14,18 +14,28 @@ function App() {
   const [recommendationList, setRecommendationList] = useState([]);
 
   const fetchPopulars = async () => {
-    const popularTVShowList = await TVShowapi.fetchPopulars();
-    if (popularTVShowList.length > 0) {
-      setCurrentTVShow(popularTVShowList[0]);
+    try {
+      const popularTVShowList = await TVShowapi.fetchPopulars();
+      if (popularTVShowList.length > 0) {
+        setCurrentTVShow(popularTVShowList[0]);
+      }
+    } catch (error) {
+      alert("Something went wrong when fetching the popular TV shows");
+      throw new Error(error);
     }
   };
 
   const fetchRecommendations = async (tvShowId) => {
-    const recommendedTVShowList = await TVShowapi.fetchRecommendations(
-      tvShowId
-    );
-    if (recommendedTVShowList.length > 0) {
-      setRecommendationList(recommendedTVShowList.slice(0, 10));
+    try {
+      const recommendedTVShowList = await TVShowapi.fetchRecommendations(
+        tvShowId
+      );
+      if (recommendedTVShowList.length > 0) {
+        setRecommendationList(recommendedTVShowList.slice(0, 10));
+      }
+    } catch (error) {
+      alert(error);
+      throw new Error(error);
     }
   };
 
@@ -44,9 +54,14 @@ function App() {
   }
 
   const fetchByTitle = async (title) => {
-    const searchResponse = await TVShowapi.fetchByTitle(title);
-    if (searchResponse.length > 0) {
-      setCurrentTVShow(searchResponse[0]);
+    try {
+      const searchResponse = await TVShowapi.fetchByTitle(title);
+      if (searchResponse.length > 0) {
+        setCurrentTVShow(searchResponse[0]);
+      }
+    } catch (error) {
+      alert(error);
+      throw new Error(error);
     }
   };
 
