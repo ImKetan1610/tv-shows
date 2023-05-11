@@ -4,7 +4,7 @@ import { TVShowDetails } from "./components/TVShowDetail/TVShowDetails";
 import s from "./style.module.css";
 import { BACKDROP_BASE_URL } from "./config";
 import { Logo } from "./components/Logo/Logo";
-import logoImg from "./assets/images/logo.png";
+import logoImg from "./assets/images/logo1.png";
 import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
 import { TVShowList } from "./components/TVShowList/TVShowList";
 import { SearchBar } from "./components/SearchBar/SearchBar";
@@ -80,7 +80,7 @@ function App() {
           <div className="col-4">
             <Logo
               img={logoImg}
-              title="Watowatch"
+              title="NetStar"
               subtitle="Find a show you may like!"
             />
           </div>
