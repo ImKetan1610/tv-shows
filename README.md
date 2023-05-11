@@ -1,3 +1,9 @@
+## Welcome: :wave:
+
+### Live Page
+
+![Live Website Image](./readmeImages/live.JPG)
+
 # Live Website
 
 [tv-show](https://my-tv-show-react-app.vercel.app/)
