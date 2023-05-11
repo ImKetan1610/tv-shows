@@ -1,6 +1,6 @@
 # Live Website
 
-live(https://my-tv-show-react-app.vercel.app/)
+[tv-show](https://my-tv-show-react-app.vercel.app/)
 
 # Getting Started with Create React App
 
